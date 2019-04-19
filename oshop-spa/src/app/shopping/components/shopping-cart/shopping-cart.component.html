@@ -1,0 +1,65 @@
+<h1>Shopping Cart</h1>
+
+<div class="row col-10">
+  <p *ngIf="shoppingCartItemCount == 0">
+    You have no items in your shopping cart.
+  </p>
+  <p *ngIf="shoppingCartItemCount == 1">
+    You have one item in your shopping cart.
+    <button class="btn btn-light btn-sm" (click)="clearCart()">Clear Shopping Cart</button>
+  </p>
+  <p *ngIf="shoppingCartItemCount > 1">
+    You have {{shoppingCartItemCount}} items in your shopping cart.
+    <button class="btn btn-light btn-sm" (click)="clearCart()">Clear Shopping Cart</button>
+  </p>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Product</th>
+      <th class="text-center" style="width: 230px">Quantity</th>
+      <th class="text-right" style="width: 200px">Price</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let c of cartItems">
+      <td>
+        <div [style.backgroundImage]="'url(' + c.product.imageUrl + ')'" class="thumbnail"></div>
+      </td>
+      <td>{{c.product.title}}</td>
+      <td>
+        <div class="row no-gutters">
+
+          <div class="col-2">
+            <button (click)="removeFromCart(c.product)" class="btn btn-secondary btn-block">-</button>
+          </div>
+
+          <div class="col text-center">
+            {{c.quantity}} in cart
+          </div>
+
+          <div class="col-2">
+            <button (click)="addToCart(c.product)" class="btn btn-secondary btn-block">+</button>
+          </div>
+
+        </div>
+      </td>
+      <td class="text-right">{{c.product.price * c.quantity | currency:'USD':'symbol'}}</td>
+    </tr>
+    </tbody>
+
+    <tfoot>
+    <tr *ngIf="cart != undefined">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th class="text-right">{{cart.totalPrice | currency:'USD':'symbol'}}</th>
+    </tr>
+    </tfoot>
+  </table>
+  <a routerLink="/check-out" *ngIf="cart != undefined" class="btn btn-primary">Check Out</a>
+</div>
+
+
