@@ -1,6 +1,6 @@
 # oshop
 Angular 7 SPA + Spring Boot 2 + H2 (fake) RDB - Organic Shop Practice Project
-(project was built generally for refreshing hands-on practice purposes)
+(project was built generally for refreshing hands-on practice purposes).
 
 # Run Requirements
 - Node.js
@@ -17,7 +17,7 @@ After required installations, locate your command line prompt into SPA directory
 - and for Spring Boot, locate into Spring Rest directory and run 'mvn spring-boot:run'
 
 # For Application User Experience
-Login with 'guest@test.com', pw: 'password' for user role account, or 'test@test.com', pw: 'password' for admin role account
+Login with 'guest@test.com', pw: 'password' for user role account, or 'test@test.com', pw: 'password' for admin role account.
 
 # Features
-Shopping Card (login later on check-out) feature and Bootstrap 4 styling
+Shopping Card (login later on check-out) feature and Bootstrap 4 styling.
